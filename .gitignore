@@ -1,3 +1,4 @@
+
 *.iml
 .gradle
 /local.properties
@@ -12,25 +13,3 @@
 /captures
 .externalNativeBuild
 .cxx
-local.properties
-
-# Log/OS Files
-*.log
-
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
-
-# Keystore files
-*.jks
-*.keystore
-
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
-*.hprof
