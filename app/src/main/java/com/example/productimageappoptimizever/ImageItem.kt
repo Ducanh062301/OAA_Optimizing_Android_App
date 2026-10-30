@@ -1,4 +1,4 @@
-package com.example.productimageapp
+package com.example.productimageappoptimizever
 
 data class ImageItem(
     val id: Int,

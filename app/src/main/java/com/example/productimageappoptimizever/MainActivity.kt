@@ -1,10 +1,10 @@
-package com.example.productimageapp
+package com.example.productimageappoptimizever
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.productimageapp.databinding.ActivityMainBinding
+import com.example.productimageappoptimizever.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,7 +21,9 @@ class MainActivity : AppCompatActivity() {
             )
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.setHasFixedSize(true)
+        binding.recyclerView.setItemViewCacheSize(10)
         binding.recyclerView.adapter = adapter
-        adapter.submitList(ImageRepository.getImages(100)) // sau này đổi 500, 1000
+        adapter.submitList(ImageRepository.getImages(100))
     }
 }

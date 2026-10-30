@@ -4,13 +4,13 @@ plugins {
 
 
 android {
-    namespace = "com.example.productimageapp"
+    namespace = "com.example.productimageappoptimizever"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.productimageapp"
+        applicationId = "com.example.productimageappoptimizever"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

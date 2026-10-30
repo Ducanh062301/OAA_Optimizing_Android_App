@@ -1,10 +1,9 @@
-package com.example.productimageapp
+package com.example.productimageappoptimizever
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
-import coil.size.Size
-import com.example.productimageapp.databinding.ActivityDetailBinding
+import com.example.productimageappoptimizever.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +14,7 @@ class DetailActivity : AppCompatActivity() {
         binding.ivDetail.load(intent.getStringExtra("url")) {
             placeholder(android.R.drawable.ic_menu_gallery)
             error(android.R.drawable.ic_dialog_alert)
-            size(Size.ORIGINAL)
+            crossfade(true)
         }
     }
 }

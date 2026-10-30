@@ -1,4 +1,4 @@
-package com.example.productimageapp
+package com.example.productimageappoptimizever
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.size.Size
-import com.example.productimageapp.databinding.ItemImageBinding
+import com.example.productimageappoptimizever.databinding.ItemImageBinding
 
 class ImageAdapter(
     private val onClick: (ImageItem) -> Unit
@@ -24,7 +23,7 @@ class ImageAdapter(
         holder.b.imageView.load(item.listUrl) {
             placeholder(android.R.drawable.ic_menu_gallery)
             error(android.R.drawable.ic_dialog_alert)
-            size(Size.ORIGINAL)
+            crossfade(true)
         }
         holder.b.root.setOnClickListener { onClick(item) }
     }
