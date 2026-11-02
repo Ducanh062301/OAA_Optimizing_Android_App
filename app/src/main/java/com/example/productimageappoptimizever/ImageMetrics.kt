@@ -34,9 +34,12 @@ class MetricListener(private val id: Int) : ImageRequest.Listener {
         Log.i(
             TAG,
             "IMGM|id=$id|t=${now - Process.getStartElapsedRealtime()}|ms=${now - t0}" +
-                "|ok=0|err=${result.throwable.javaClass.simpleName}"
+                "|ok=0|err=${result.throwable.javaClass.simpleName}|msg=${shortMsg(result.throwable)}"
         )
     }
+
+    private fun shortMsg(t: Throwable): String =
+        (t.message ?: "").replace('|', ' ').replace('\n', ' ').take(100)
 
     companion object {
         const val TAG = "ImgMetric"
