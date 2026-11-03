@@ -32,7 +32,6 @@ class App : Application(), ImageLoaderFactory {
             .memoryCachePolicy(CachePolicy.ENABLED)
             .diskCachePolicy(CachePolicy.ENABLED)
             .respectCacheHeaders(false)
-            .crossfade(true)
             .build()
     }
 }

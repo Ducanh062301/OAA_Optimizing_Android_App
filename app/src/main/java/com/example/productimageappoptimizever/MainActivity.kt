@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.setItemViewCacheSize(10)
         binding.recyclerView.adapter = adapter
 
         // Tham so cho script do (mac dinh giu nguyen hanh vi cu):
