@@ -24,18 +24,23 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter = adapter
 
-        // Tham so cho script do (mac dinh giu nguyen hanh vi cu):
-        //   --ei count N      so luong anh (mac dinh 100)
-        //   --ei seedOffset K dich seed de tranh cache CDN (mac dinh 0)
-        //   --ei badEvery M   cu M anh thi 1 anh co URL loi (mac dinh 0 = tat)
-        val count = intent.getIntExtra("count", 100)
-        val offset = intent.getIntExtra("seedOffset", 0)
-        val badEvery = intent.getIntExtra("badEvery", 0)
-        val items = ImageRepository.getImages(count + offset).drop(offset).map {
-            if (badEvery > 0 && it.id % badEvery == 0) {
-                it.copy(listUrl = "https://invalid.invalid/img.jpg")
-            } else it
+        val imageCount = intent.getIntExtra("IMAGE_COUNT", 100)
+        val testMode = intent.getStringExtra("TEST_MODE") ?: "NORMAL"
+
+        val items = ImageRepository.getImages(imageCount).map {
+            when (testMode) {
+                "HIGH_RES" -> {
+                    it.copy(listUrl = "https://picsum.photos/seed/${it.id}/3840/2160")
+                }
+                "BROKEN_URL" -> {
+                    if (it.id % 2 == 0) it.copy(listUrl = "https://invalid.url.xyz/broken.jpg") else it
+                }
+                else -> {
+                    it
+                }
+            }
         }
+
         adapter.submitList(items)
     }
 }
